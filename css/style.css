@@ -1,0 +1,50 @@
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --very-dark-blue-mainbg: hsl(217, 54%, 11%);
+  --very-dark-blue-cardbg: hsl(216, 50%, 16%);
+  --very-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  margin: 0;
+  background-color: var(--very-dark-blue-mainbg);
+}
+
+.title1 {
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin: 30px 0 50px 50px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 45px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 20px hsl(216, 50%, 16%),
+      0 0 30px hsl(216, 50%, 16%), 0 0 40px hsl(216, 50%, 16%),
+      0 0 50px hsl(216, 50%, 16%), 0 0 60px hsl(216, 50%, 16%);
+  }
+  to {
+    text-shadow: 0 0 20px white, 0 0 30px var(--soft-blue),
+      0 0 30px var(--soft-blue), 0 0 40px hsl(216, 50%, 16%),
+      0 0 50px var(--soft-blue), 0 0 60px var(--soft-blue), 0 0 60px #ff4da6;
+  }
+}
+
+.cam {
+  background-color: var(--very-dark-blue-mainbg);
+  width: 600px;
+  margin-left: 50px;
+}
+
+.exit {
+  width: fit-content;
+}
