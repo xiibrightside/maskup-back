@@ -50,8 +50,12 @@ function detectImage() {
 
       let content = id2class[classID] + " " + score.toFixed(2);
       ctx.fillText(content, bbox[0], bbox[1] < 20 ? bbox[1] + 30 : bbox[1] - 5);
+
+      // if statement to play audio each time classID == 1 i.e cam detects nomask
+      // the issue usually is that the audio file won't load onto the DOM
       if (classID == 1) {
         var sound = new Audio("./x-y.wav");
+        console.log("1");
         sound.play();
       }
     }
