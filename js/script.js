@@ -43,6 +43,10 @@ function detectImage() {
         ctx.fillStyle = "red";
       }
 
+      if (classID != 1 && classID != 0) {
+        classID = null;
+      }
+
       ctx.rect(bbox[0], bbox[1], bbox[2] - bbox[0], bbox[3] - bbox[1]);
       ctx.stroke();
 
@@ -50,13 +54,17 @@ function detectImage() {
 
       let content = id2class[classID] + " " + score.toFixed(2);
       ctx.fillText(content, bbox[0], bbox[1] < 20 ? bbox[1] + 30 : bbox[1] - 5);
-
+      console.log(classID);
       // if statement to play audio each time classID == 1 i.e cam detects nomask
       // the issue usually is that the audio file won't load onto the DOM
+      const synth = window.speechSynthesis;
+      const words = "Please Wear Mask";
+      const wordsToSpeek = new SpeechSynthesisUtterance(words);
       if (classID == 1) {
-        var sound = new Audio("./x-y.wav");
-        console.log("1");
-        sound.play();
+        synth.speak(wordsToSpeek);
+        setTimeout(() => {
+          synth.cancel(true);
+        }, 4000);
       }
     }
   });
